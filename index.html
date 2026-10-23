@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Beh Wadz 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#ffc0d9,#ffe6f0);
+    color:#a71958;
+}
+
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:25px;
+    animation:floatUp 6s linear infinite;
+    opacity:.8;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* CONFETTI */
+.confetti{
+    position:fixed;
+    top:-20px;
+    width:9px;
+    height:14px;
+    animation:fall 4s linear forwards;
+    z-index:20;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* MAIN */
+.container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 15px;
+    position:relative;
+}
+
+.card{
+    width:100%;
+    max-width:850px;
+    text-align:center;
+    padding:45px 25px;
+    border-radius:35px;
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(12px);
+    box-shadow:0 15px 50px rgba(170,40,100,.25);
+    border:2px solid rgba(255,255,255,.7);
+}
+
+/* TOP */
+.top-icons{
+    font-size:40px;
+    margin-bottom:15px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* TITLE */
+h1{
+    font-family:cursive;
+    font-size:clamp(45px,9vw,85px);
+    line-height:1;
+    color:#a71958;
+    text-shadow:3px 3px 0 #fff;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:clamp(18px,4vw,28px);
+    font-weight:bold;
+    color:#e83e83;
+}
+
+.lungs{
+    font-size:65px;
+    margin:20px 0;
+    animation:breath 3s infinite;
+}
+
+@keyframes breath{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.description{
+    font-size:18px;
+    color:#7d2850;
+    max-width:650px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* BUTTON */
+.start-btn{
+    margin-top:30px;
+    border:none;
+    padding:18px 35px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff4f91,#e91e63);
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(233,30,99,.4);
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+}
+
+/* MESSAGE */
+.message{
+    display:none;
+    margin-top:35px;
+    padding:35px 25px;
+    border-radius:30px;
+    background:rgba(255,245,250,.95);
+    box-shadow:0 10px 35px rgba(170,40,100,.2);
+}
+
+.message.show{
+    display:block;
+    animation:appear 1s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.message h2{
+    font-family:cursive;
+    font-size:clamp(30px,7vw,50px);
+    margin-bottom:25px;
+    color:#c2185b;
+}
+
+/* RT CIRCLE */
+.rt{
+    margin:25px auto;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff6fa5,#e91e63);
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(233,30,99,.35);
+}
+
+/* MESSAGE TEXT */
+.note{
+    font-size:clamp(18px,4vw,23px);
+    line-height:1.8;
+    color:#8b2353;
+    font-weight:500;
+}
+
+.note strong{
+    color:#d81b60;
+}
+
+/* HEARTBEAT */
+.heartbeat{
+    font-size:38px;
+    margin:25px 0;
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* FOOTER */
+.footer{
+    margin-top:35px;
+    font-family:cursive;
+    font-size:30px;
+    color:#a71958;
+}
+
+.small{
+    margin-top:8px;
+    font-size:15px;
+    color:#9b4168;
+}
+
+/* BALLOONS */
+.balloon{
+    position:fixed;
+    font-size:55px;
+    z-index:2;
+    animation:balloonFloat 4s ease-in-out infinite;
+}
+
+.b1{
+    left:4%;
+    top:20%;
+}
+
+.b2{
+    right:4%;
+    top:25%;
+}
+
+.b3{
+    left:8%;
+    bottom:15%;
+}
+
+.b4{
+    right:8%;
+    bottom:12%;
+}
+
+@keyframes balloonFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    .card{
+        padding:35px 18px;
+    }
+
+    .description{
+        font-size:16px;
+    }
+
+    .message{
+        padding:25px 18px;
+    }
+
+    .balloon{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORATIONS -->
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">💗</div>
+<div class="balloon b4">🎀</div>
+
+
+<div class="container">
+
+<div class="card">
+
+    <div class="top-icons">
+        🎀 💗 🦋 💗 🎀
+    </div>
+
+    <h1>
+        Happy Birthday,<br>
+        Beh Wadz! 💕
+    </h1>
+
+    <div class="subtitle">
+        To the Amazing Respiratory Therapist! 🫁
+    </div>
+
+    <div class="lungs">
+        🫁
+    </div>
+
+    <p class="description">
+        Today is all about celebrating YOU,
+        your kindness, your hard work,
+        and the happiness you bring to the people around you. 💗
+    </p>
+
+    <button class="start-btn" onclick="startCelebration()">
+        Start the Celebration 🎉
+    </button>
+
+
+    <!-- SPECIAL MESSAGE -->
+
+    <div class="message" id="message">
+
+        <h2>
+            💌 A Special Message for Beh Wadz 💌
+        </h2>
+
+        <div class="rt">
+            RT
+        </div>
+
+        <div class="note">
+
+            <strong>
+                HAPPY HAPPY BIRTHDAY BEH WADZ! 🎉💗
+            </strong>
+
+            <br><br>
+
+            Kamayaa sadja kaw duun always ahh 💕
+            <br>
+
+            Be happy always,
+            ayaw magpa-stress tuud. 🥹💗
+
+            <br><br>
+
+            Kalo susungun mabut da katan ya,
+            angan-angan natuh. ✨
+
+            <br><br>
+
+            Dinako pahaba tuud HAHAHA 😭
+
+            <br><br>
+
+            <strong>
+                Just enjoy your day! 🎂🌸
+            </strong>
+
+            <br><br>
+
+            Mwuapss! 💗
+            <br>
+
+            Kalasahan takaw! 🥹💕
+
+            <br>
+
+            Ayaw magbag-o ahh. 💗
+
+        </div>
+
+
+        <div class="heartbeat">
+            💗 ── 💓 ── 💗 ── 💓 ── 💗
+        </div>
+
+
+        <p style="font-size:20px;line-height:1.6;">
+
+            🫁 Keep helping people breathe
+            <br>
+            and keep being amazing! 💕
+
+        </p>
+
+
+        <div class="footer">
+            Made by Ndah Rhay 💗
+        </div>
+
+        <div class="small">
+            With lots of love, birthday wishes & pink vibes 🎀✨
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = [
+        "💗",
+        "💕",
+        "💖",
+        "💓",
+        "💞",
+        "🎀",
+        "✨"
+    ];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    heart.style.fontSize =
+        (18 + Math.random() * 25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,500);
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    for(let i = 0; i < 100; i++){
+
+        const c = document.createElement("div");
+
+        c.className = "confetti";
+
+        c.style.left =
+            Math.random() * 100 + "vw";
+
+        c.style.background =
+            [
+                "#ff4f91",
+                "#ff80ab",
+                "#f06292",
+                "#ec407a",
+                "#ffffff",
+                "#ffd54f"
+            ][Math.floor(Math.random() * 6)];
+
+        c.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        c.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+        document.body.appendChild(c);
+
+        setTimeout(function(){
+            c.remove();
+        },6000);
+    }
+}
+
+
+/* BIRTHDAY SOUND */
+
+function birthdaySound(){
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if(!AudioContext) return;
+
+    const ctx = new AudioContext();
+
+    const notes = [
+        523.25,
+        659.25,
+        783.99,
+        1046.50
+    ];
+
+    notes.forEach(function(freq,i){
+
+        const osc = ctx.createOscillator();
+
+        const gain = ctx.createGain();
+
+        osc.frequency.value = freq;
+
+        osc.type = "sine";
+
+        gain.gain.setValueAtTime(
+            0.001,
+            ctx.currentTime + i * 0.18
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.25,
+            ctx.currentTime + i * 0.18 + 0.05
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            ctx.currentTime + i * 0.18 + 0.5
+        );
+
+        osc.connect(gain);
+
+        gain.connect(ctx.destination);
+
+        osc.start(
+            ctx.currentTime + i * 0.18
+        );
+
+        osc.stop(
+            ctx.currentTime + i * 0.18 + 0.55
+        );
+
+    });
+}
+
+
+/* START CELEBRATION */
+
+function startCelebration(){
+
+    const message =
+        document.getElementById("message");
+
+    message.classList.add("show");
+
+    document.querySelector(".start-btn").innerHTML =
+        "Celebration Started! 💗🎉";
+
+    createConfetti();
+
+    birthdaySound();
+
+    message.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+}
+
+</script>
+
+</body>
+</html>
